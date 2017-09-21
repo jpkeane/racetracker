@@ -1,0 +1,57 @@
+Rails:
+  Enabled: true
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/AbcSize:
+  Max: 20
+
+Style/Alias:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+UselessAssignment:
+  Enabled: false
+
+FrozenStringLiteralComment:
+  Enabled: false
+
+StructInheritance:
+  Exclude:
+    - 'app/policies/**/*'
+
+OutputSafety:
+  Exclude:
+    - 'app/helpers/devise_helper.rb'
+Style/FileName:
+  Exclude:
+    - 'Gemfile'
+
+RedundantSelf:
+  Exclude:
+    - 'app/models/**/*'
+
+ExtraSpacing:
+  Exclude:
+    - 'config/routes.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+
+AllCops:
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - 'db/**/*'
+    - 'script/**/*'
+    - 'bin/**/*'
+    - 'config/environments/**/*'
+    - !ruby/regexp /old_and_unused\.rb$/
+  TargetRubyVersion: 2.4
