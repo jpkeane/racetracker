@@ -24,6 +24,9 @@ class Track < ApplicationRecord
   VALID_POSTCODE_REGEX = /\A([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|
   (([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z]))))\s?[0-9][A-Za-z]{2})\z/x
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   belongs_to :promotion
 
   validates :name, presence: true, length: { maximum: 30 }
@@ -33,6 +36,6 @@ class Track < ApplicationRecord
   validates :address_ln_2, length: { maximum: 100 }
   validates :city, length: { maximum: 100 }
   validates :postcode, length: { maximum: 9 }, format: { with: VALID_POSTCODE_REGEX }, allow_blank: true
-  validates :surface, inclusion: { in: %w[Shale Tarmac Concrete] }
-  validates :length_unit, inclusion: { in: %w[m ft km] }
+  validates :surface, inclusion: { in: %w[Shale Tarmac Concrete] }, allow_blank: true
+  validates :length_unit, inclusion: { in: %w[m ft km] }, allow_blank: true
 end

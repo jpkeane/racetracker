@@ -1,1 +1,9 @@
 <h2><%= @promotion.name %></h2>
+<% if @promotion.tracks.any? %>
+    <h3>Tracks</h3>
+    <ul>
+      <% @promotion.tracks.each do |track| %>
+          <li><%= track.name %></li>
+      <% end %>
+    </ul>
+<% end %>
