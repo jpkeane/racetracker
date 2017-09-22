@@ -336,6 +336,17 @@
         null,
         null
       ],
+      "/Users/jpkeane/Development/RaceTracker/racetracker/app/controllers/tracks_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
       "/Users/jpkeane/Development/RaceTracker/racetracker/app/models/promotion.rb": [
         null,
         null,
@@ -429,6 +440,6 @@
         null
       ]
     },
-    "timestamp": 1506123678
+    "timestamp": 1506123805
   }
 }
