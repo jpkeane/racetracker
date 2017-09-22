@@ -4,6 +4,9 @@ class Promotion < ApplicationRecord
 
   VALID_COMPANY_NUMBER_REGEX = /\A([0-9]{8})|((N(I|C))|(S(C|L|O)))[0-9]{6}\z/
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   validates :name, presence: true, length: { maximum: 30 }
   validates :slug, presence: true, length: { maximum: 30 }, uniqueness: { case_sensitive: false }
   validates :company_name, length: { maximum: 100 }
@@ -11,5 +14,5 @@ class Promotion < ApplicationRecord
   validates :address_ln_1, length: { maximum: 100 }
   validates :address_ln_2, length: { maximum: 100 }
   validates :city, length: { maximum: 100 }
-  validates :postcode, length: { maximum: 8 }, format: { with: VALID_POSTCODE_REGEX }
+  validates :postcode, length: { maximum: 8 }, format: { with: VALID_POSTCODE_REGEX }, allow_blank: true
 end
