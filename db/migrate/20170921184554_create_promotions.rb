@@ -7,6 +7,7 @@ class CreatePromotions < ActiveRecord::Migration[5.1]
       t.string :company_number
       t.string :address_ln_1
       t.string :address_ln_2
+      t.string :city
       t.string :postcode
       t.string :telephone_main
       t.string :telephone_tickets
