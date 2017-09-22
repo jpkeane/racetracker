@@ -3,7 +3,7 @@
     <h3>Tracks</h3>
     <ul>
       <% @promotion.tracks.each do |track| %>
-          <li><%= link_to track.name, tracks_path(track) %></li>
+          <li><%= link_to track.name, track_path(track) %></li>
       <% end %>
     </ul>
 <% end %>

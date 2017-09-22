@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+p1 = Promotion.create(name: 'Speedworth Motorsports')
+
+t1 = Track.create(name: 'Ipswich Foxhall Stadium', promotion: p1)
