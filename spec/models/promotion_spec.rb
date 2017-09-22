@@ -30,6 +30,14 @@ RSpec.describe Promotion, type: :model do
     it { is_expected.to validate_length_of(:city).is_at_most(100) }
     it { is_expected.to validate_length_of(:postcode).is_at_most(8) }
 
+    describe 'uniqueness' do
+      subject do
+        FactoryGirl.build(:promotion)
+      end
+
+      it { is_expected.to validate_uniqueness_of(:slug).case_insensitive }
+    end
+
     it 'validates format of postcode' do
       valid_pc = ['CW3 9SS', 'WC2H 7LT']
       valid_pc.each do |pc|

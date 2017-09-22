@@ -5,7 +5,7 @@ class Promotion < ApplicationRecord
   VALID_COMPANY_NUMBER_REGEX = /\A([0-9]{8})|((N(I|C))|(S(C|L|O)))[0-9]{6}\z/
 
   validates :name, presence: true, length: { maximum: 30 }
-  validates :slug, presence: true, length: { maximum: 30 }
+  validates :slug, presence: true, length: { maximum: 30 }, uniqueness: { case_sensitive: false }
   validates :company_name, length: { maximum: 100 }
   validates :company_number, length: { maximum: 10 }, format: { with: VALID_COMPANY_NUMBER_REGEX }, allow_blank: true
   validates :address_ln_1, length: { maximum: 100 }
