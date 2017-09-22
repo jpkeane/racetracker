@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170922145159) do
+ActiveRecord::Schema.define(version: 20170922173622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,4 +46,25 @@ ActiveRecord::Schema.define(version: 20170922145159) do
     t.index ["slug"], name: "index_promotions_on_slug", unique: true
   end
 
+  create_table "tracks", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "slug", null: false
+    t.bigint "promotion_id"
+    t.string "address_ln_1"
+    t.string "address_ln_2"
+    t.string "city"
+    t.string "postcode"
+    t.string "telephone_office"
+    t.string "telephone_tickets"
+    t.string "telephone_bookings"
+    t.string "surface"
+    t.float "length"
+    t.string "length_unit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["promotion_id"], name: "index_tracks_on_promotion_id"
+    t.index ["slug"], name: "index_tracks_on_slug", unique: true
+  end
+
+  add_foreign_key "tracks", "promotions"
 end

@@ -1,3 +1,25 @@
+# == Schema Information
+#
+# Table name: promotions
+#
+#  id                 :integer          not null, primary key
+#  name               :string           not null
+#  slug               :string           not null
+#  company_name       :string
+#  company_number     :string
+#  address_ln_1       :string
+#  address_ln_2       :string
+#  city               :string
+#  postcode           :string
+#  telephone_main     :string
+#  telephone_tickets  :string
+#  telephone_bookings :string
+#  short_desc         :text
+#  long_desc          :text
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
 require 'rails_helper'
 
 RSpec.describe Promotion, type: :model do
@@ -17,6 +39,10 @@ RSpec.describe Promotion, type: :model do
     it { is_expected.to have_attribute :long_desc }
   end
 
+  describe 'relationships' do
+    it { is_expected.to have_many :tracks }
+  end
+
   describe 'validations' do
     it { is_expected.to validate_presence_of :name }
     it { is_expected.to validate_presence_of :slug }
@@ -28,7 +54,7 @@ RSpec.describe Promotion, type: :model do
     it { is_expected.to validate_length_of(:address_ln_1).is_at_most(100) }
     it { is_expected.to validate_length_of(:address_ln_2).is_at_most(100) }
     it { is_expected.to validate_length_of(:city).is_at_most(100) }
-    it { is_expected.to validate_length_of(:postcode).is_at_most(8) }
+    it { is_expected.to validate_length_of(:postcode).is_at_most(9) }
 
     describe 'uniqueness' do
       subject do
@@ -45,7 +71,7 @@ RSpec.describe Promotion, type: :model do
         expect(promo).to be_valid
       end
 
-      invalid_pc = ['aWC2H 7LT', 'WC2H 7LTa', 'WC2H']
+      invalid_pc = ['WC2Haa 7LT', 'WC2H 7LTa', 'WC2H']
       invalid_pc.each do |pc|
         promo = FactoryGirl.build(:promotion, postcode: pc)
         expect(promo).not_to be_valid
