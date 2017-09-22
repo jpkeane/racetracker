@@ -6,6 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-p1 = Promotion.create(name: 'Speedworth Motorsports')
+p1 = Promotion.create(name: 'Speedworth Motorsports',
+                      address_ln_1: 'Spedeworth House',
+                      address_ln_2: 'Hollybush Lane',
+                      city: 'Aldershot',
+                      postcode: 'GU11 2PX',
+                      telephone_main: '01252 322920',
+                      telephone_tickets: '01252 322920',
+                      telephone_bookings: '01252 322920')
 
 t1 = Track.create(name: 'Ipswich Foxhall Stadium', promotion: p1)

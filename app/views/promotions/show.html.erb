@@ -1,5 +1,19 @@
 <h2><%= @promotion.name %></h2>
 <% if @promotion.tracks.any? %>
+    <h3>Promotion Information</h3>
+    <h4>Address</h4>
+    <p>
+      <%= @promotion.address_ln_1 %><br />
+      <%= @promotion.address_ln_2 %><br />
+      <%= @promotion.city %><br />
+      <%= @promotion.postcode %><br />
+    </p>
+    <h4>Telephone Numbers</h4>
+    <ul>
+      <li>Main: <%= @promotion.telephone_main %></li>
+      <li>Tickets: <%= @promotion.telephone_tickets %></li>
+      <li>Bookings: <%= @promotion.telephone_bookings %></li>
+    </ul>
     <h3>Tracks</h3>
     <ul>
       <% @promotion.tracks.each do |track| %>
