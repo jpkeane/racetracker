@@ -273,10 +273,41 @@
       ],
       "/Users/jpkeane/Development/RaceTracker/racetracker/config/routes.rb": [
         1,
-        null,
+        1,
         null
       ],
       "/Users/jpkeane/Development/RaceTracker/racetracker/app/helpers/application_helper.rb": [
+        1,
+        null,
+        1,
+        2,
+        2,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        2,
+        1,
+        null,
+        null,
+        null,
+        1,
+        2,
+        1,
+        null,
+        null
+      ],
+      "/Users/jpkeane/Development/RaceTracker/racetracker/app/controllers/front_pages_controller.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/jpkeane/Development/RaceTracker/racetracker/app/controllers/application_controller.rb": [
+        1,
         1,
         null
       ],
@@ -306,6 +337,6 @@
         null
       ]
     },
-    "timestamp": 1506092516
+    "timestamp": 1506093669
   }
 }
