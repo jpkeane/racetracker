@@ -29,8 +29,8 @@ class Track < ApplicationRecord
 
   belongs_to :promotion
 
-  validates :name, presence: true, length: { maximum: 30 }
-  validates :slug, presence: true, length: { maximum: 30 }, uniqueness: { case_sensitive: false }
+  validates :name, presence: true, length: { maximum: 80 }
+  validates :slug, presence: true, length: { maximum: 80 }, uniqueness: { case_sensitive: false }
   validates :promotion, presence: true
   validates :address_ln_1, length: { maximum: 100 }
   validates :address_ln_2, length: { maximum: 100 }
