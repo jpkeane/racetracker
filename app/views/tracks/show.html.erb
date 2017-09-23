@@ -1,2 +1,21 @@
 <h2><%= @track.name %></h2>
 <p>Promotion: <%= link_to @track.promotion.name, promotion_path(@track.promotion) %></p>
+<h3>Track Characteristics</h3>
+<ul>
+  <li>Surface: <%= @track.surface %></li>
+  <li>Length: <%= "#{@track.length} #{@track.length_unit}" %></li>
+</ul>
+<h3>Track Information</h3>
+<h4>Address</h4>
+<p>
+  <%= @track.address_ln_1 %><br />
+  <%= @track.address_ln_2 %><br />
+  <%= @track.city %><br />
+  <%= @track.postcode %><br />
+</p>
+<h4>Telephone Numbers</h4>
+<ul>
+  <li>Main: <%= @track.telephone_office %></li>
+  <li>Tickets: <%= @track.telephone_tickets %></li>
+  <li>Bookings: <%= @track.telephone_bookings %></li>
+</ul>

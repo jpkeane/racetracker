@@ -15,4 +15,15 @@ p1 = Promotion.create(name: 'Speedworth Motorsports',
                       telephone_tickets: '01252 322920',
                       telephone_bookings: '01252 322920')
 
-t1 = Track.create(name: 'Ipswich Foxhall Stadium', promotion: p1)
+t1 = Track.create(name: 'Ipswich Foxhall Stadium',
+                  promotion: p1,
+                  address_ln_1: 'Foxhall Heath',
+                  address_ln_2: 'Foxhall Road',
+                  city: 'Suffolk',
+                  postcode: 'IP4 5TL',
+                  telephone_office: '01252 322920',
+                  telephone_tickets: '01252 322920',
+                  telephone_bookings: '01252 322920',
+                  surface: 'Tarmac',
+                  length: 382,
+                  length_unit: 'm')
