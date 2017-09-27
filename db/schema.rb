@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926144842) do
+ActiveRecord::Schema.define(version: 20170927224904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,22 @@ ActiveRecord::Schema.define(version: 20170926144842) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["track_id"], name: "index_fixtures_on_track_id"
+  end
+
+  create_table "formulas", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "slug", null: false
+    t.string "short_name", null: false
+    t.bigint "promotion_id"
+    t.string "abbreviation", null: false
+    t.string "contact", null: false
+    t.string "direction", null: false
+    t.text "description"
+    t.integer "min_age"
+    t.integer "max_age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["promotion_id"], name: "index_formulas_on_promotion_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -79,5 +95,6 @@ ActiveRecord::Schema.define(version: 20170926144842) do
   end
 
   add_foreign_key "fixtures", "tracks"
+  add_foreign_key "formulas", "promotions"
   add_foreign_key "tracks", "promotions"
 end
