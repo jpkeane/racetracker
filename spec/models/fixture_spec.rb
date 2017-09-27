@@ -38,4 +38,12 @@ RSpec.describe Fixture, type: :model do
     it { is_expected.to validate_length_of(:name).is_at_most(200) }
     it { is_expected.to validate_length_of(:slug).is_at_most(290) }
   end
+
+  describe 'methods' do
+    let!(:fixture) { FactoryGirl.create(:fixture) }
+
+    it '#short_date should return date in correct format' do
+      expect(fixture.short_date).to eq fixture.start_time.strftime('%d/%m/%Y')
+    end
+  end
 end
