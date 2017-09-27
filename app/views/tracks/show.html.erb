@@ -22,8 +22,8 @@
 <% if @track.fixtures.any? %>
   <h4>Fixtures</h4>
   <ul>
-    <% @track.fixtures.each do |f| %>
-      <li><%= link_to f.name, fixture_path(f) %></li>
+    <% @track.fixtures.each do |fixture| %>
+      <li><%= link_to "#{fixture.short_date} - #{fixture.name}", fixture_path(fixture) %></li>
     <% end %>
   </ul>
 <% end %>

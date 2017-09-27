@@ -15,6 +15,7 @@
 
 class Fixture < ApplicationRecord
   belongs_to :track
+  has_one :promotion, through: :track
 
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged

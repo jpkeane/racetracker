@@ -30,6 +30,7 @@ class Promotion < ApplicationRecord
   friendly_id :name, use: :slugged
 
   has_many :tracks
+  has_many :fixtures, through: :tracks
 
   validates :name, presence: true, length: { maximum: 30 }
   validates :slug, presence: true, length: { maximum: 30 }, uniqueness: { case_sensitive: false }

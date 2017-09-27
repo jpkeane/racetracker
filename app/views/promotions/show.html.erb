@@ -13,12 +13,20 @@
   <li>Tickets: <%= @promotion.telephone_tickets %></li>
   <li>Bookings: <%= @promotion.telephone_bookings %></li>
 </ul>
-<h3>Tracks</h3>
 <% if @promotion.tracks.any? %>
-
+    <h3>Tracks</h3>
     <ul>
       <% @promotion.tracks.each do |track| %>
           <li><%= link_to track.name, track_path(track) %></li>
       <% end %>
     </ul>
 <% end %>
+<% if @promotion.fixtures.any? %>
+  <h3>Fixtures</h3>
+  <ul>
+    <% @promotion.fixtures.each do |fixture| %>
+        <li><%= link_to "#{fixture.short_date} - #{fixture.name}", fixture_path(fixture) %></li>
+  <% end %>
+  </ul>
+<% end %>
+
