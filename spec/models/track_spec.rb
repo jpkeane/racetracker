@@ -40,11 +40,15 @@ RSpec.describe Track, type: :model do
 
   describe 'relationships' do
     it { is_expected.to belong_to :promotion }
+    it { is_expected.to have_many :fixtures }
   end
 
   describe 'validations' do
     it { is_expected.to validate_presence_of :name }
     it { is_expected.to validate_presence_of :slug }
+
+    it { is_expected.to validate_length_of(:name).is_at_most(80) }
+    it { is_expected.to validate_length_of(:slug).is_at_most(80) }
     it { is_expected.to validate_length_of(:address_ln_1).is_at_most(100) }
     it { is_expected.to validate_length_of(:address_ln_2).is_at_most(100) }
     it { is_expected.to validate_length_of(:city).is_at_most(100) }

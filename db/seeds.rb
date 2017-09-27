@@ -114,3 +114,7 @@ t7 = Track.create(name: 'Northampton International Raceway',
                   surface: 'Tarmac',
                   length: 396,
                   length_unit: 'm')
+
+f1 = Fixture.create(name: 'Ipswich Gala Night',
+                    track: t1,
+                    start_time: '2017-11-04 13:00:00')

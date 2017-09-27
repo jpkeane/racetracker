@@ -12,4 +12,5 @@ Rails.application.routes.draw do
 
   resources :promotions, only: %i[index show]
   resources :tracks, only: %i[index show]
+  resources :fixtures, only: %i[index show]
 end

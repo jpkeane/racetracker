@@ -28,6 +28,7 @@ class Track < ApplicationRecord
   friendly_id :name, use: :slugged
 
   belongs_to :promotion
+  has_many :fixtures
 
   validates :name, presence: true, length: { maximum: 80 }
   validates :slug, presence: true, length: { maximum: 80 }, uniqueness: { case_sensitive: false }

@@ -19,3 +19,11 @@
   <li>Tickets: <%= @track.telephone_tickets %></li>
   <li>Bookings: <%= @track.telephone_bookings %></li>
 </ul>
+<% if @track.fixtures.any? %>
+  <h4>Fixtures</h4>
+  <ul>
+    <% @track.fixtures.each do |f| %>
+      <li><%= link_to f.name, fixture_path(f) %></li>
+    <% end %>
+  </ul>
+<% end %>

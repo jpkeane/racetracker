@@ -1,0 +1,6 @@
+<h2><%= @fixture.name %></h2>
+<h3>Information</h3>
+<ul>
+  <li>Promotion: <%= link_to @fixture.track.promotion.name, promotion_path(@fixture.track.promotion)%></li>
+  <li>Track: <%= link_to @fixture.track.name, track_path(@fixture.track) %></li>
+</ul>

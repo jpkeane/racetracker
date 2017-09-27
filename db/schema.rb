@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170922173622) do
+ActiveRecord::Schema.define(version: 20170926144842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "fixtures", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "slug", null: false
+    t.bigint "track_id", null: false
+    t.datetime "start_time", null: false
+    t.text "short_desc"
+    t.text "long_desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["track_id"], name: "index_fixtures_on_track_id"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -66,5 +78,6 @@ ActiveRecord::Schema.define(version: 20170922173622) do
     t.index ["slug"], name: "index_tracks_on_slug", unique: true
   end
 
+  add_foreign_key "fixtures", "tracks"
   add_foreign_key "tracks", "promotions"
 end
