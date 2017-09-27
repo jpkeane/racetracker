@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# Populate
 Rake::Task['seed:promotions'].invoke
 Rake::Task['seed:tracks'].invoke
 Rake::Task['seed:fixtures'].invoke
