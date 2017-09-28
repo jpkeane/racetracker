@@ -1,6 +1,6 @@
 module FormulasHelper
   def age_range(min_age, max_age)
-    age_class = if min_age < 16
+    age_class = if max_age && (min_age < 16) && (max_age < 16)
                   'Junior'
                 else
                   'Senior'
