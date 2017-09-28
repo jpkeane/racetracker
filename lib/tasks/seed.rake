@@ -94,4 +94,20 @@ namespace :seed do
                                         formula: formula)
     end
   end
+
+  task formula_fixture_heats: :environment do
+    csv_path = Rails.root.join('db', 'seeds', 'formula_fixture_heats.csv')
+    ffhs = CSV.read(csv_path, headers: true)
+
+    ffhs.each do |ffh|
+      formula_fixture = FormulaFixture.find_by(slug: ffh['Formula Fixture Slug'])
+
+      FormulaFixtureHeat.find_or_create_by!(heat_number: ffh['Heat Number'],
+                                            race_number: ffh['Race Number'],
+                                            slug: ffh['Slug'],
+                                            formula_fixture: formula_fixture,
+                                            title: ffh['Title'],
+                                            race_type: ffh['Race Type'])
+    end
+  end
 end

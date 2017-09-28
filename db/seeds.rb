@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Only for testing
+FormulaFixtureHeat.destroy_all
 FormulaFixture.destroy_all
 Formula.destroy_all
 Fixture.destroy_all
@@ -19,4 +20,5 @@ Rake::Task['seed:tracks'].invoke
 Rake::Task['seed:fixtures'].invoke
 Rake::Task['seed:formulas'].invoke
 Rake::Task['seed:formula_fixtures'].invoke
+Rake::Task['seed:formula_fixture_heats'].invoke
 

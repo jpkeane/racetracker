@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170928151300) do
+ActiveRecord::Schema.define(version: 20170928203256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 20170928151300) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["track_id"], name: "index_fixtures_on_track_id"
+  end
+
+  create_table "formula_fixture_heats", force: :cascade do |t|
+    t.integer "heat_number", null: false
+    t.integer "race_number", null: false
+    t.string "slug", null: false
+    t.bigint "formula_fixture_id", null: false
+    t.string "title"
+    t.string "race_type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["formula_fixture_id"], name: "index_formula_fixture_heats_on_formula_fixture_id"
   end
 
   create_table "formula_fixtures", force: :cascade do |t|
@@ -106,6 +118,7 @@ ActiveRecord::Schema.define(version: 20170928151300) do
   end
 
   add_foreign_key "fixtures", "tracks"
+  add_foreign_key "formula_fixture_heats", "formula_fixtures"
   add_foreign_key "formula_fixtures", "fixtures"
   add_foreign_key "formula_fixtures", "formulas"
   add_foreign_key "formulas", "promotions"
