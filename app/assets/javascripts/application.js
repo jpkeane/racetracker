@@ -11,5 +11,13 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
-//= require_tree .
+//= require jquery/jquery
+//= require tether/tether
+//= require bootstrap/bootstrap
+//= require waves/waves
+//= require jquery.scrollbar/jquery.scrollbar
+//= require jquery-scrollLock/jquery-scrollLock
+//
+//= require autosize/autosize
+//
+//= require wrap/app.min

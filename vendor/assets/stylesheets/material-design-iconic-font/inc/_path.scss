@@ -1,0 +1,12 @@
+// Font path
+// --------------------------
+
+@font-face {
+  font-family: '#{$zmdi-font-name}';
+  src:
+      asset-url('material-design-iconic-font/Material-Design-Iconic-Font.woff2?v=#{$zmdi-version}') format('woff2'),
+      asset-url('material-design-iconic-font/Material-Design-Iconic-Font.woff?v=#{$zmdi-version}') format('woff'),
+      asset-url('material-design-iconic-font/Material-Design-Iconic-Font.ttf?v=#{$zmdi-version}') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
