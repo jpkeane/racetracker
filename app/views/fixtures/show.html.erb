@@ -12,3 +12,11 @@
     <% end %>
     </ul>
 <% end %>
+<% if @fixture.formula_fixture_heats.any? %>
+  <h3>Race Card</h3>
+    <ul>
+      <% @fixture.formula_fixture_heats.each do |h| %>
+        <li><%= "Race #{h.race_number} - #{h.formula.short_name} - Heat #{h.heat_number} #{h.title} #{h.race_type}" %></li>
+      <% end %>
+    </ul>
+<% end %>

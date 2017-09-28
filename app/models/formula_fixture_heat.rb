@@ -15,6 +15,7 @@
 
 class FormulaFixtureHeat < ApplicationRecord
   belongs_to :formula_fixture
+  has_one :formula, through: :formula_fixture
 
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
