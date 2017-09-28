@@ -20,6 +20,9 @@
 class Formula < ApplicationRecord
   belongs_to :promotion, required: false
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   validates :name, presence: true, length: { maximum: 150 }
   validates :slug, presence: true, length: { maximum: 80 }, uniqueness: { case_sensitive: false }
   validates :short_name, presence: true, length: { maximum: 60 }

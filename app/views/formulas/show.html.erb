@@ -1,0 +1,20 @@
+<h2><%= @formula.name %></h2>
+<h3>Formula Information</h3>
+<ul>
+  <li>Short Name: <%= @formula.short_name %></li>
+  <li>Abbreviation: <%= @formula.abbreviation %></li>
+</ul>
+
+<h4>Racing Style</h4>
+<ul>
+  <li>Contact Class: <%= @formula.contact.humanize %></li>
+  <li>Racing Direction: <%= @formula.direction.humanize %></li>
+  <li>Age Range: <%= age_range(@formula.min_age, @formula.max_age) %></li>
+</ul>
+
+<% if @formula.description %>
+  <h4>Description</h4>
+  <p>
+    <%= @formula.description %>
+  </p>
+<% end %>

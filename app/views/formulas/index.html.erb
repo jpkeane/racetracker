@@ -1,0 +1,6 @@
+<h2>All Formulas</h2>
+<ul>
+  <% @formulas.each do |formula| %>
+      <li><%= link_to formula.name, formula_path(formula) %></li>
+  <% end %>
+</ul>
