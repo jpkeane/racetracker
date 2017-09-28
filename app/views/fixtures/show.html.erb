@@ -4,3 +4,11 @@
   <li>Promotion: <%= link_to @fixture.track.promotion.name, promotion_path(@fixture.track.promotion)%></li>
   <li>Track: <%= link_to @fixture.track.name, track_path(@fixture.track) %></li>
 </ul>
+<% if @fixture.formula_fixtures.any? %>
+    <h3>Formulas Racing</h3>
+    <ul>
+    <% @fixture.formula_fixtures.each do |ff| %>
+        <li><%= link_to(ff.formula.name, formula_path(ff.formula)) %></li>
+    <% end %>
+    </ul>
+<% end %>

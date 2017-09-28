@@ -16,6 +16,7 @@
 class Fixture < ApplicationRecord
   belongs_to :track
   has_one :promotion, through: :track
+  has_many :formula_fixtures
 
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
@@ -26,11 +27,17 @@ class Fixture < ApplicationRecord
 
   def slug_candidates
     [
-      [track.slug, :name]
+      [track.slug, slug_date]
     ]
   end
 
   def short_date
     start_time.strftime('%d/%m/%Y')
+  end
+
+  private
+
+  def slug_date
+    start_time.strftime('%d-%m-%Y')
   end
 end

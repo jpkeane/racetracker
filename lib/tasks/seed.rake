@@ -77,4 +77,21 @@ namespace :seed do
                                  max_age: f['Max Age'])
     end
   end
+
+  task formula_fixtures: :environment do
+    csv_path = Rails.root.join('db', 'seeds', 'formula_fixtures.csv')
+    ffs = CSV.read(csv_path, headers: true)
+
+    ffs.each do |ff|
+      promotion = Promotion.find_by(slug: ff['Promotion Slug'])
+
+      fixture = Fixture.find_by(slug: ff['Fixture Slug'])
+      formula = Formula.find_by(slug: ff['Formula Slug'])
+
+      FormulaFixture.find_or_create_by!(slug: ff['Slug'],
+                                        title: ff['Title'],
+                                        fixture: fixture,
+                                        formula: formula)
+    end
+  end
 end

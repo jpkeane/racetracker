@@ -18,3 +18,13 @@
     <%= @formula.description %>
   </p>
 <% end %>
+
+
+<% if @formula.formula_fixtures.any? %>
+  <h3>Fixtures</h3>
+  <ul>
+    <% @formula.formula_fixtures.each do |ff| %>
+        <li><%= link_to formula_fixture_desc(ff), fixture_path(ff.fixture) %></li>
+    <% end %>
+  </ul>
+<% end %>

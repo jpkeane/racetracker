@@ -19,6 +19,7 @@
 
 class Formula < ApplicationRecord
   belongs_to :promotion, required: false
+  has_many :formula_fixtures
 
   extend FriendlyId
   friendly_id :name, use: :slugged

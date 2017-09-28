@@ -12,4 +12,12 @@ module FormulasHelper
       "#{age_class} - #{min_age} +"
     end
   end
+
+  def formula_fixture_desc(ff)
+    if ff.title
+      "#{ff.fixture.short_date} - #{ff.fixture.name} (#{ff.title})"
+    else
+      "#{ff.fixture.short_date} - #{ff.fixture.name}"
+    end
+  end
 end
