@@ -1,0 +1,23 @@
+Formula Name,Slug,Short Name,Promotion Slug,Abbreviation,Contact,Direction,Description,Min Age,Max Age
+BriSCA Formula 1 Stock Cars,brisca-f1,BriSCA F1,,BF1,contact,anti-clockwise,,16,
+BriSCA Formula 2 Stock Cars,brisca-f2,BriSCA F2,,BF2,contact,anti-clockwise,,16,
+National Hot Rods,national-hot-rods,National Hot Rods,,NHR,non-contact,clockwise,,16,
+2L Saloon Stock Cars,saloon-stock-cars,Saloon Stock Cars,,SSC,nudge-and-spin,clockwise,,16,
+V8 Stock Cars,v8-stock-cars,V8 Stock Cars,,V8,contact,anti-clockwise,,16,
+2L Hot Rods,2l-hot-rods,2L Hot Rods,,2LHR,non-contact,clockwise,,16,
+Superstox,superstox,Superstox,spedeworth,SS,contact,anti-clockwise,,16,
+ORC Ministox,orc-ministox,ORC Ministox,,OMS,nudge-and-spin,clockwise,,11,15
+National Ministox,national-ministox,National Ministox,,NMS,nudge-and-spin,anti-clockwise,,11,15
+1300 Stock Cars,1300-stock-cars,1300 Stock Cars,,1300SC,nudge-and-spin,clockwise,,16,
+Micro F2 Stock Cars,micro-f2,Micro F2,,MF2,nudge-and-spin,anti-clockwise,,16,
+Stock Rods,stock-rods,Stock Rods,,SR,non-contact,clockwise,,16,
+Oval Track Legends,legends,Legends,,OTL,non-contact,anti-clockwise,,16,
+National Bangers,national-bangers,National Bangers,,NB,contact,clockwise,,16,
+Ninja Karts,ninja-karts,Ninja Karts,,NK,non-contact,anti-clockwise,,6,10
+Classic Hot Rods,classic-hot-rods,Classic Hot Rods,,CHR,non-contact,clockwise,,35,
+Junior StoxKarts,junior-stoxkarts,Junior StoxKarts,,JSK,nudge-and-spin,anti-clockwise,,11,15
+StoxKarts,stoxkarts,StoxKarts,,SK,nudge-and-spin,anti-clockwise,,16,
+Lightning Rods,lightning-rods,Lightning Rods,,LR,non-contact,clockwise,,16,
+Spedeworth Junior Bangers,spedeworth-junior-bangers,Junior Bangers,spedeworth,JB,contact,clockwise,,11,15
+Spedeworth Domestic Bangers,spedeworth-bangers,Bangers,spedeworth,B,contact,clockwise,,16,
+Incarace Domestic Bangers,incarace-domestic-bangers,Bangers,incarace,B,contact,clockwise,,16,

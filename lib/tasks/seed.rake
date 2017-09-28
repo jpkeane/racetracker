@@ -58,4 +58,23 @@ namespace :seed do
                                  long_desc: f['Long Desc'])
     end
   end
+
+  task formulas: :environment do
+    csv_path = Rails.root.join('db', 'seeds', 'formulas.csv')
+    formulas = CSV.read(csv_path, headers: true)
+
+    formulas.each do |f|
+      promotion = Promotion.find_by(slug: f['Promotion Slug'])
+      Formula.find_or_create_by!(name: f['Formula Name'],
+                                 slug: f['Slug'],
+                                 short_name: f['Short Name'],
+                                 promotion: promotion,
+                                 abbreviation: f['Abbreviation'],
+                                 contact: f['Contact'],
+                                 direction: f['Direction'],
+                                 description: f['Description'],
+                                 min_age: f['Min Age'],
+                                 max_age: f['Max Age'])
+    end
+  end
 end
