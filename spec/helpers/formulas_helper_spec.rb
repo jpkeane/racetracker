@@ -18,4 +18,16 @@ RSpec.describe FormulasHelper, type: :helper do
       expect(helper.age_range(12, nil)).to eq 'Senior - 12 +'
     end
   end
+
+  describe '#formula_fixture_desc' do
+    it 'should return without title' do
+      ff = FactoryGirl.create(:formula_fixture, title: nil)
+      expect(helper.formula_fixture_desc(ff)).to eq "#{ff.fixture.short_date} - #{ff.fixture.name}"
+    end
+
+    it 'should return with title' do
+      ff = FactoryGirl.create(:formula_fixture)
+      expect(helper.formula_fixture_desc(ff)).to eq "#{ff.fixture.short_date} - #{ff.fixture.name} (#{ff.title})"
+    end
+  end
 end
