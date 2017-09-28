@@ -6,6 +6,10 @@
 #  promotion GET  /promotions/:id(.:format) promotions#show
 #     tracks GET  /tracks(.:format)         tracks#index
 #      track GET  /tracks/:id(.:format)     tracks#show
+#   fixtures GET  /fixtures(.:format)       fixtures#index
+#    fixture GET  /fixtures/:id(.:format)   fixtures#show
+#   formulas GET  /formulas(.:format)       formulas#index
+#    formula GET  /formulas/:id(.:format)   formulas#show
 
 Rails.application.routes.draw do
   root 'front_pages#home'
