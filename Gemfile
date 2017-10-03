@@ -21,6 +21,9 @@ gem 'sidekiq'
 # Core
 gem 'bcrypt', '~> 3.1.7'
 gem 'friendly_id'
+
+# AAA
+gem 'devise'
 gem 'pundit'
 
 # View

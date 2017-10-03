@@ -12,6 +12,7 @@
 #    formula GET  /formulas/:id(.:format)   formulas#show
 
 Rails.application.routes.draw do
+  devise_for :staffs
   root 'front_pages#home'
 
   namespace :manager do
