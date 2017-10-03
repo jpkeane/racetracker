@@ -1,5 +1,5 @@
 <h2><%= @track.name %></h2>
-<p>Promotion: <%= link_to @track.promotion.name, promotion_path(@track.promotion) %></p>
+<p>Promotion: <%= link_to @track.promotion.name, manager_promotion_path(@track.promotion) %></p>
 <h3>Track Characteristics</h3>
 <ul>
   <li>Surface: <%= @track.surface %></li>
@@ -23,7 +23,7 @@
   <h4>Fixtures</h4>
   <ul>
     <% @track.fixtures.each do |fixture| %>
-      <li><%= link_to "#{fixture.short_date} - #{fixture.name}", fixture_path(fixture) %></li>
+      <li><%= link_to "#{fixture.short_date} - #{fixture.name}", manager_fixture_path(fixture) %></li>
     <% end %>
   </ul>
 <% end %>

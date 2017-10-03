@@ -11,3 +11,13 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require manager/jquery/jquery
+//= require manager/tether/tether
+//= require manager/bootstrap/bootstrap
+//= require manager/waves/waves
+//= require manager/jquery.scrollbar/jquery.scrollbar
+//= require manager/jquery-scrollLock/jquery-scrollLock
+//
+//= require manager/autosize/autosize
+//
+//= require manager/wrap/app.min

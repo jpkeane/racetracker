@@ -14,8 +14,12 @@
 Rails.application.routes.draw do
   root 'front_pages#home'
 
-  resources :promotions, only: %i[index show]
-  resources :tracks, only: %i[index show]
-  resources :fixtures, only: %i[index show]
-  resources :formulas, only: %i[index show]
+  namespace :manager do
+    get 'dashboard', to: 'dashboards#index'
+
+    resources :promotions, only: %i[index show]
+    resources :tracks, only: %i[index show]
+    resources :fixtures, only: %i[index show]
+    resources :formulas, only: %i[index show]
+  end
 end

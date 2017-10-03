@@ -11,3 +11,9 @@
  * It is generally better to create a new file per style scope.
  *
  */
+
+@import "manager/material-design-iconic-font/material-design-iconic-font";
+@import "manager/animate/animate";
+@import "manager/jquery.scrollbar/jquery.scrollbar";
+
+@import "manager/wrap/app";

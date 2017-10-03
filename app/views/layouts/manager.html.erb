@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= full_title(yield(:title)) %></title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'manager', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'manager', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body data-ma-theme="indigo">
+<main class="main">
+  <%= render 'layouts/manager/header' %>
+  <%= render 'layouts/manager/left_bar' %>
+
+  <section class="content">
+    <header class="content__title">
+      <h1><%= yield(:title) %></h1>
+    </header>
+
+    <%= yield %>
+
+    <%= render 'layouts/manager/footer' %>
+  </section>
+</main>
+
+<!-- App functions and actions -->
+</body>
+</html>

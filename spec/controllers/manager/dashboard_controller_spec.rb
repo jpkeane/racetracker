@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe FrontPagesController, type: :controller do
-  describe 'GET #home' do
+RSpec.describe Manager::DashboardsController, type: :controller do
+  describe 'GET #show' do
     it 'returns http success' do
-      get :home
+      get :index
       expect(response).to have_http_status(:success)
     end
   end

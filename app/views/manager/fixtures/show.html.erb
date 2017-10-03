@@ -1,14 +1,14 @@
 <h2><%= @fixture.name %></h2>
 <h3>Information</h3>
 <ul>
-  <li>Promotion: <%= link_to @fixture.track.promotion.name, promotion_path(@fixture.track.promotion)%></li>
-  <li>Track: <%= link_to @fixture.track.name, track_path(@fixture.track) %></li>
+  <li>Promotion: <%= link_to @fixture.track.promotion.name, manager_promotion_path(@fixture.track.promotion)%></li>
+  <li>Track: <%= link_to @fixture.track.name, manager_track_path(@fixture.track) %></li>
 </ul>
 <% if @fixture.formula_fixtures.any? %>
     <h3>Formulas Racing</h3>
     <ul>
     <% @fixture.formula_fixtures.each do |ff| %>
-        <li><%= link_to(ff.formula.name, formula_path(ff.formula)) %></li>
+        <li><%= link_to(ff.formula.name, manager_formula_path(ff.formula)) %></li>
     <% end %>
     </ul>
 <% end %>

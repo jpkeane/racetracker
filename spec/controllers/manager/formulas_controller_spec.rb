@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe FixturesController, type: :controller do
+RSpec.describe Manager::FormulasController, type: :controller do
   describe 'GET #index' do
     it 'returns http success' do
       get :index
@@ -10,8 +10,8 @@ RSpec.describe FixturesController, type: :controller do
 
   describe 'GET #show' do
     it 'returns http success' do
-      fixture = FactoryGirl.create(:fixture)
-      get :show, params: { id: fixture.slug }
+      formula = FactoryGirl.create(:formula)
+      get :show, params: { id: formula.slug }
       expect(response).to have_http_status(:success)
     end
   end

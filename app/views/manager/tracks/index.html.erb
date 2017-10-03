@@ -1,6 +1,6 @@
 <h2>All Tracks</h2>
 <ul>
 <% @tracks.each do |track| %>
-  <li><%= link_to track.name, track_path(track) %></li>
+  <li><%= link_to track.name, manager_track_path(track) %></li>
 <% end %>
 </ul>

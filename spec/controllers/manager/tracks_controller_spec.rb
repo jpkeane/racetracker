@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PromotionsController, type: :controller do
+RSpec.describe Manager::TracksController, type: :controller do
   describe 'GET #index' do
     it 'returns http success' do
       get :index
@@ -10,8 +10,8 @@ RSpec.describe PromotionsController, type: :controller do
 
   describe 'GET #show' do
     it 'returns http success' do
-      promo = FactoryGirl.create(:promotion)
-      get :show, params: { id: promo.slug }
+      track = FactoryGirl.create(:track)
+      get :show, params: { id: track.slug }
       expect(response).to have_http_status(:success)
     end
   end

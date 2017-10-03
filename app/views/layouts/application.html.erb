@@ -8,22 +8,8 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
-<body data-ma-theme="indigo">
-<main class="main">
-  <%= render 'layouts/application/header' %>
-  <%= render 'layouts/application/left_bar' %>
-
-  <section class="content">
-    <header class="content__title">
-      <h1><%= yield(:title) %></h1>
-    </header>
-
-    <%= yield %>
-
-    <%= render 'layouts/application/footer' %>
-  </section>
-</main>
-
-<!-- App functions and actions -->
+<body>
+<h1><%= yield(:title) %></h1>
+<%= yield %>
 </body>
 </html>

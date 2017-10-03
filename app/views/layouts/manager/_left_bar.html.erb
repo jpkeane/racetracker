@@ -7,22 +7,22 @@
         <% end %>
       </li>
       <li class="<%= active_controller?('promotions', 'navigation__active')%>">
-        <%= link_to promotions_path do %>
+        <%= link_to manager_promotions_path do %>
             <i class="zmdi zmdi-balance"></i> Promotions
         <% end %>
       </li>
       <li class="<%= active_controller?('tracks', 'navigation__active')%>">
-        <%= link_to tracks_path do %>
+        <%= link_to manager_tracks_path do %>
             <i class="zmdi zmdi-pin"></i> Tracks
         <% end %>
       </li>
       <li class="<%= active_controller?('fixtures', 'navigation__active')%>">
-        <%= link_to fixtures_path do %>
+        <%= link_to manager_fixtures_path do %>
             <i class="zmdi zmdi-flag"></i> Fixtures
         <% end %>
       </li>
       <li class="<%= active_controller?('formulas', 'navigation__active')%>">
-        <%= link_to formulas_path do %>
+        <%= link_to manager_formulas_path do %>
             <i class="zmdi zmdi-car"></i> Formulas
         <% end %>
       </li>
