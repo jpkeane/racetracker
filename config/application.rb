@@ -28,5 +28,13 @@ module Racetracker
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.to_prepare do
+      Devise::SessionsController.layout 'sessions'
+      Devise::RegistrationsController.layout(proc { user_signed_in? ? 'application' : 'sessions' })
+      Devise::ConfirmationsController.layout 'sessions'
+      Devise::UnlocksController.layout 'sessions'
+      Devise::PasswordsController.layout 'sessions'
+    end
   end
 end

@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe Manager::FixturesController, type: :controller do
   context 'signed in staff' do
     before(:each) do
-      @staff = FactoryGirl.create(:staff)
-      sign_in @staff
+      @user = FactoryGirl.create(:user)
+      sign_in @user
     end
 
     describe 'GET #index' do

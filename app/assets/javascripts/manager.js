@@ -14,7 +14,6 @@
 //= require manager/jquery/jquery
 //= require manager/tether/tether
 //= require manager/bootstrap/bootstrap
-//= require manager/waves/waves
 //= require manager/jquery.scrollbar/jquery.scrollbar
 //= require manager/jquery-scrollLock/jquery-scrollLock
 //
