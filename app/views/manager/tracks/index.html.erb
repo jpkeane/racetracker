@@ -1,6 +1,35 @@
-<h2>All Tracks</h2>
-<ul>
-<% @tracks.each do |track| %>
-  <li><%= link_to track.name, manager_track_path(track) %></li>
-<% end %>
-</ul>
+<% provide(:title, 'Track List') %>
+<div class="card">
+  <div class="card-header">
+    <h2 class="card-title">All tracks</h2>
+  </div>
+
+  <div class="card-block">
+    <div class="table-responsive">
+      <table class="table table-bordered mb-0">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>City</th>
+          <th>Postcode</th>
+          <th>Promotion</th>
+          <th>Surface</th>
+          <th>Length</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @tracks.each do |track| %>
+          <tr>
+            <th scope="row"><%= link_to track.name, manager_track_path(track) %></th>
+            <td><%= track.city %></td>
+            <td><%= track.postcode %></td>
+            <td><%= track.promotion.name %></td>
+            <td><%= track.surface %></td>
+            <td><%= formatted_length(track.length, track.length_unit) %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

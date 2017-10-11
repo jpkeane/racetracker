@@ -1,29 +1,78 @@
-<h2><%= @track.name %></h2>
-<p>Promotion: <%= link_to @track.promotion.name, manager_promotion_path(@track.promotion) %></p>
-<h3>Track Characteristics</h3>
-<ul>
-  <li>Surface: <%= @track.surface %></li>
-  <li>Length: <%= "#{@track.length} #{@track.length_unit}" %></li>
-</ul>
-<h3>Track Information</h3>
-<h4>Address</h4>
-<p>
-  <%= @track.address_ln_1 %><br />
-  <%= @track.address_ln_2 %><br />
-  <%= @track.city %><br />
-  <%= @track.postcode %><br />
-</p>
-<h4>Telephone Numbers</h4>
-<ul>
-  <li>Main: <%= @track.telephone_office %></li>
-  <li>Tickets: <%= @track.telephone_tickets %></li>
-  <li>Bookings: <%= @track.telephone_bookings %></li>
-</ul>
-<% if @track.fixtures.any? %>
-  <h4>Fixtures</h4>
-  <ul>
-    <% @track.fixtures.each do |fixture| %>
-      <li><%= link_to "#{fixture.short_date} - #{fixture.name}", manager_fixture_path(fixture) %></li>
-    <% end %>
-  </ul>
-<% end %>
+<% provide(:title, @track.name) %>
+<header class="content__title">
+  <h1><%= @track.name %></h1>
+  <small>Promotion: <%= link_to @track.promotion.name, manager_promotion_path(@track.promotion) %></small>
+</header>
+<div class="card">
+  <div class="card-block">
+    <div class="tab-container">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#track" role="tab" aria-expanded="true">Track</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#contact" role="tab" aria-expanded="false">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#fixtures" role="tab" aria-expanded="false">Fixtures</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane fade active show" id="track" role="tabpanel" aria-expanded="true">
+          <dl class="row">
+            <dt class="col-sm-3">Surface</dt>
+            <dd class="col-sm-9"><%= @track.surface %></dd>
+
+            <dt class="col-sm-3">Length</dt>
+            <dd class="col-sm-9"><%= "#{@track.length} #{@track.length_unit}" %></dd>
+          </dl>
+        </div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-expanded="false">
+          <dl class="row">
+            <dt class="col-sm-3">Address</dt>
+            <dd class="col-sm-9"><%= @track.address_ln_1 %></dd>
+            <dd class="col-sm-9 offset-sm-3"><%= @track.address_ln_2 %></dd>
+            <dd class="col-sm-9 offset-sm-3"><%= @track.city %></dd>
+            <dd class="col-sm-9 offset-sm-3"><%= @track.postcode %></dd>
+          </dl>
+          <hr/>
+          <dl class="row">
+            <dt class="col-sm-3">Telephone</dt>
+            <dd class="col-sm-9">Main: <%= @track.telephone_office %></dd>
+            <dd class="col-sm-9 offset-sm-3">Tickets: <%= @track.telephone_tickets %></dd>
+            <dd class="col-sm-9 offset-sm-3">Bookings: <%= @track.telephone_bookings %></dd>
+          </dl>
+        </div>
+        <div class="tab-pane fade" id="fixtures" role="tabpanel" aria-expanded="false">
+          <div class="table-responsive">
+            <table class="table table-bordered mb-0">
+              <thead>
+              <tr>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Formula racing</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @track.fixtures.each do |fixture| %>
+              <tr>
+                <td><%= fixture.short_date %></td>
+                <th scope="row"><%= link_to fixture.name, manager_fixture_path(fixture) %></th>
+                <td>
+                  <ul class="list-unstyled">
+                  <% fixture.formula_fixtures.each do |ff| %>
+                    <li><%= link_to ff.formula.name, manager_formula_path(ff.formula)%></li>
+                  <% end %>
+                  </ul>
+                </td>
+              </tr>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

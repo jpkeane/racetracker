@@ -18,5 +18,6 @@
 //= require manager/jquery-scrollLock/jquery-scrollLock
 //
 //= require manager/autosize/autosize
+//= require manager/datatables/jquery.dataTables
 //
 //= require manager/wrap/app.min
