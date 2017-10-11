@@ -38,4 +38,12 @@ RSpec.describe ApplicationHelper, type: :helper do
       expect(helper.active_controller?('not_front')).to eq nil
     end
   end
+
+  describe '#devise_type' do
+    it 'returns correct devise types' do
+      expect(helper.devise_type('alert')).to eq 'danger'
+      expect(helper.devise_type('notice')).to eq 'info'
+      expect(helper.devise_type('warning')).to eq 'warning'
+    end
+  end
 end
