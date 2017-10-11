@@ -20,4 +20,14 @@ module ApplicationHelper
     return unless params[:action] == action_name
     class_name.nil? ? 'active' : class_name
   end
+
+  def devise_type(type)
+    if type == 'alert'
+      'danger'
+    elsif type == 'notice'
+      'info'
+    else
+      type
+    end
+  end
 end

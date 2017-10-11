@@ -10,4 +10,12 @@
   <div class="header__logo hidden-sm-down">
     <h1><a href="index.html">RaceTracker</a></h1>
   </div>
+
+  <ul class="top-nav">
+    <li>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="zmdi zmdi-close-circle"></i>
+      <% end %>
+    </li>
+  </ul>
 </header>

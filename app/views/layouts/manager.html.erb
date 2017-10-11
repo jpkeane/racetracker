@@ -9,14 +9,12 @@
 </head>
 
 <body data-ma-theme="indigo">
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
 <main class="main">
   <%= render 'layouts/manager/header' %>
   <%= render 'layouts/manager/left_bar' %>
 
   <section class="content">
+    <%= render 'layouts/manager/flash' %>
     <header class="content__title">
       <h1><%= yield(:title) %></h1>
     </header>
