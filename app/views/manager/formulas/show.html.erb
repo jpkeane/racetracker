@@ -1,30 +1,68 @@
-<h2><%= @formula.name %></h2>
-<h3>Formula Information</h3>
-<ul>
-  <li>Short Name: <%= @formula.short_name %></li>
-  <li>Abbreviation: <%= @formula.abbreviation %></li>
-</ul>
+<header class="content__title">
+  <h1><%= @formula.name %></h1>
+</header>
+<div class="card">
+  <div class="card-header">
+    <h2 class="card-title">Formula details</h2>
+  </div>
 
-<h4>Racing Style</h4>
-<ul>
-  <li>Contact Class: <%= @formula.contact.humanize %></li>
-  <li>Racing Direction: <%= @formula.direction.humanize %></li>
-  <li>Age Range: <%= age_range(@formula.min_age, @formula.max_age) %></li>
-</ul>
+  <div class="card-block">
+    <dl class="row">
+      <dt class="col-sm-3">Short name</dt>
+      <dd class="col-sm-9"><%= @formula.short_name %></dd>
+    </dl>
+    <dl class="row">
+      <dt class="col-sm-3">Contact class</dt>
+      <dd class="col-sm-9"><%= @formula.contact.humanize %></dd>
+    </dl>
+    <dl class="row">
+      <dt class="col-sm-3">Racing direction</dt>
+      <dd class="col-sm-9"><%= @formula.direction.humanize %></dd>
+    </dl>
+    <dl class="row">
+      <dt class="col-sm-3">Age class</dt>
+      <dd class="col-sm-9"><%= age_range(@formula.min_age, @formula.max_age) %></dd>
+    </dl>
+  </div>
+</div>
 
-<% if @formula.description %>
-  <h4>Description</h4>
-  <p>
-    <%= @formula.description %>
-  </p>
-<% end %>
+<div class="card">
+  <div class="card-block">
+    <div class="tab-container">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#description" role="tab" aria-expanded="false">Description</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " data-toggle="tab" href="#fixtures" role="tab" aria-expanded="true">Fixtures</a>
+        </li>
+      </ul>
 
-
-<% if @formula.formula_fixtures.any? %>
-  <h3>Fixtures</h3>
-  <ul>
-    <% @formula.formula_fixtures.each do |ff| %>
-        <li><%= link_to formula_fixture_desc(ff), manager_fixture_path(ff.fixture) %></li>
-    <% end %>
-  </ul>
-<% end %>
+      <div class="tab-content">
+        <div class="tab-pane fade active show" id="description" role="tabpanel" aria-expanded="false">
+          <%= @formula.description %>
+        </div>
+        <div class="tab-pane fade" id="fixtures" role="tabpanel" aria-expanded="true">
+          <div class="table-responsive">
+            <table class="table table-bordered mb-0">
+              <thead>
+              <tr>
+                <th>Date</th>
+                <th>Title</th>
+                <th>Track</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @formula.formula_fixtures.each do |ff| %>
+                  <td><%= ff.fixture.short_date %></td>
+                  <td><%= link_to ff.fixture.name, manager_fixture_path(ff.fixture) %></td>
+                  <td><%= link_to ff.fixture.track.name, manager_track_path(ff.fixture.track) %></td>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

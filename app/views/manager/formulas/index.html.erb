@@ -1,6 +1,30 @@
-<h2>All Formulas</h2>
-<ul>
-  <% @formulas.each do |formula| %>
-      <li><%= link_to formula.name, manager_formula_path(formula) %></li>
-  <% end %>
-</ul>
+<div class="card">
+  <div class="card-header">
+    <h2 class="card-title">All formulas</h2>
+  </div>
+
+  <div class="card-block">
+    <div class="table-responsive">
+      <table class="table table-bordered mb-0">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Contact</th>
+          <th>Direction</th>
+          <th>Age</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @formulas.each do |f| %>
+            <tr>
+              <th scope="row"><%= link_to f.name, manager_formula_path(f) %></th>
+              <td><%= f.contact %></td>
+              <td><%= f.direction %></td>
+              <td> <%= age_range(f.min_age, f.max_age) %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
