@@ -1,6 +1,32 @@
-<h2>All Promotions</h2>
-<ul>
-<% @promotions.each do |promo| %>
-  <li><%= link_to promo.name, manager_promotion_path(promo) %></li>
-<% end %>
-</ul>
+<div class="card">
+  <div class="card-header">
+    <h2 class="card-title">All promotions</h2>
+  </div>
+
+  <div class="card-block">
+    <div class="table-responsive">
+      <table class="table table-bordered mb-0">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Tracks</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @promotions.each do |promo| %>
+            <tr>
+              <th scope="row"><%= link_to promo.name, manager_promotion_path(promo) %></th>
+              <td>
+                <ul class="list-unstyled">
+                  <% promo.tracks.each do |t| %>
+                    <li><%= link_to t.name, manager_track_path(t) %></li>
+                  <% end %>
+                </ul>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

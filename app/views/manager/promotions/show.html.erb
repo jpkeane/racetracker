@@ -1,32 +1,60 @@
-<h2><%= @promotion.name %></h2>
-<h3>Promotion Information</h3>
-<h4>Address</h4>
-<p>
-  <%= @promotion.address_ln_1 %><br />
-  <%= @promotion.address_ln_2 %><br />
-  <%= @promotion.city %><br />
-  <%= @promotion.postcode %><br />
-</p>
-<h4>Telephone Numbers</h4>
-<ul>
-  <li>Main: <%= @promotion.telephone_main %></li>
-  <li>Tickets: <%= @promotion.telephone_tickets %></li>
-  <li>Bookings: <%= @promotion.telephone_bookings %></li>
-</ul>
-<% if @promotion.tracks.any? %>
-    <h3>Tracks</h3>
-    <ul>
-      <% @promotion.tracks.each do |track| %>
-          <li><%= link_to track.name, manager_track_path(track) %></li>
-      <% end %>
-    </ul>
-<% end %>
-<% if @promotion.fixtures.any? %>
-  <h3>Fixtures</h3>
-  <ul>
-    <% @promotion.fixtures.each do |fixture| %>
-        <li><%= link_to "#{fixture.short_date} - #{fixture.name}", manager_fixture_path(fixture) %></li>
-  <% end %>
-  </ul>
-<% end %>
+<header class="content__title">
+  <h1><%= @promotion.name %></h1>
+</header>
+<div class="card">
+  <div class="card-block">
+    <div class="tab-container">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#tracks" role="tab" aria-expanded="false">Tracks</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " data-toggle="tab" href="#contact" role="tab" aria-expanded="true">Contact</a>
+        </li>
+      </ul>
 
+      <div class="tab-content">
+        <div class="tab-pane fade active show" id="tracks" role="tabpanel" aria-expanded="false">
+          <div class="table-responsive">
+            <table class="table table-bordered mb-0">
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th>City</th>
+                <th>Surface</th>
+                <th>Length</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @promotion.tracks.each do |t| %>
+                  <tr>
+                    <th scope="row"><%= link_to t.name, manager_track_path(t) %></th>
+                    <td><%= t.city %></td>
+                    <td><%= t.surface %></td>
+                    <td><%= formatted_length(t.length, t.length_unit) %></td>
+                  </tr>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-expanded="true">
+          <dl class="row">
+            <dt class="col-sm-3">Address</dt>
+            <dd class="col-sm-9"><%= @promotion.address_ln_1 %></dd>
+            <dd class="col-sm-9 offset-sm-3"><%= @promotion.address_ln_2 %></dd>
+            <dd class="col-sm-9 offset-sm-3"><%= @promotion.city %></dd>
+            <dd class="col-sm-9 offset-sm-3"><%= @promotion.postcode %></dd>
+          </dl>
+          <hr/>
+          <dl class="row">
+            <dt class="col-sm-3">Telephone</dt>
+            <dd class="col-sm-9">Main: <%= @promotion.telephone_main %></dd>
+            <dd class="col-sm-9 offset-sm-3">Tickets: <%= @promotion.telephone_tickets %></dd>
+            <dd class="col-sm-9 offset-sm-3">Bookings: <%= @promotion.telephone_bookings %></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
