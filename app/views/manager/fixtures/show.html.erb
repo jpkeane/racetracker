@@ -68,6 +68,7 @@
                 <th>Race</th>
                 <th>Formula</th>
                 <th>Heat</th>
+                <th>Laps</th>
                 <th>Type</th>
               </tr>
               </thead>
@@ -77,6 +78,7 @@
                     <td><%= "##{h.race_number}" %></td>
                     <td><%= "#{h.formula.name}" %></td>
                     <td><%= heat_desc(h.heat_number, h.title) %></td>
+                    <td><%= "#{h.formula.laps} laps" %></td>
                     <td><%= type_desc(h.race_type) %></td>
                   </tr>
                 <% end %>
