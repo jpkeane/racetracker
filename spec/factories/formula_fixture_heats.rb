@@ -11,6 +11,7 @@
 #  race_type          :string           not null
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  laps               :integer          default(12), not null
 #
 
 FactoryGirl.define do
