@@ -20,7 +20,7 @@ class FormulaFixtureHeat < ApplicationRecord
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
 
-  validates :race_type, presence: true, inclusion: { in: %w[normal final showdown dd figure-of-8] }
+  validates :race_type, presence: true, inclusion: { in: %w[normal showdown dd figure-of-8] }
   validates :heat_number, presence: true
 
   def slug_candidates

@@ -36,7 +36,7 @@ RSpec.describe FormulaFixtureHeat, type: :model do
     it { is_expected.to validate_presence_of :heat_number }
 
     it 'validates race_type' do
-      valid_t = %w[normal final showdown dd figure-of-8]
+      valid_t = %w[normal showdown dd figure-of-8]
       valid_t.each do |t|
         fixheat = FactoryGirl.build(:formula_fixture_heat, race_type: t)
         expect(fixheat).to be_valid
