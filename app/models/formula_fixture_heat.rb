@@ -14,6 +14,8 @@
 #
 
 class FormulaFixtureHeat < ApplicationRecord
+  default_scope { order(race_number: :asc) }
+
   belongs_to :formula_fixture
   has_one :formula, through: :formula_fixture
 
