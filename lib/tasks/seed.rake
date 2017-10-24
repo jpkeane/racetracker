@@ -107,7 +107,8 @@ namespace :seed do
                                             slug: ffh['Slug'],
                                             formula_fixture: formula_fixture,
                                             title: ffh['Title'],
-                                            race_type: ffh['Race Type'])
+                                            race_type: ffh['Race Type'],
+                                            laps: ffh['Laps'])
     end
   end
 end
