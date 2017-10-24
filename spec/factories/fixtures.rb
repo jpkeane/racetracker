@@ -16,7 +16,6 @@
 FactoryGirl.define do
   factory :fixture do
     sequence(:name) { |n| "Event #{n}" }
-    sequence(:slug) { |n| "event-#{n}" }
     track
     start_time { Faker::Date.between(Time.zone.today, 6.months.since) }
     short_desc 'Short description'

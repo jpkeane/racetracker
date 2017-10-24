@@ -19,8 +19,7 @@ FactoryGirl.define do
     sequence(:heat_number) { |n| n }
     sequence(:race_number) { |n| n }
 
-    sequence(:slug) { |n| "fomula-fixture-#{n}" }
     title 'SuperRace!'
-    race_type 'standard'
+    race_type 'normal'
   end
 end

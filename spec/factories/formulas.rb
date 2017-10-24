@@ -20,7 +20,6 @@
 FactoryGirl.define do
   factory :formula do
     sequence(:name) { |n| "Formula #{n} Stock Cars" }
-    sequence(:slug) { |n| "formula-#{n}" }
     sequence(:short_name) { |n| "Formula #{n}" }
     promotion nil
     sequence(:abbreviation) { |n| "f#{n}sc" }

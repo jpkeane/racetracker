@@ -29,7 +29,7 @@ RSpec.describe Fixture, type: :model do
 
   describe 'validations' do
     subject do
-      FactoryGirl.build(:fixture)
+      FactoryGirl.create(:fixture)
     end
 
     it { is_expected.to validate_presence_of :name }

@@ -23,7 +23,6 @@
 FactoryGirl.define do
   factory :track do
     sequence(:name) { |n| "Track #{n}" }
-    sequence(:slug) { |n| "track-#{n}" }
     promotion
     address_ln_1 "#{Faker::Address.building_number} #{Faker::Address.street_name}"
     address_ln_2 Faker::Address.community.to_s
