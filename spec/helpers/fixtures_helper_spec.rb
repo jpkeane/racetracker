@@ -15,6 +15,8 @@ RSpec.describe FixturesHelper, type: :helper do
     it 'should correct type string' do
       expect(helper.type_desc('normal')).to eq 'Race'
       expect(helper.type_desc('dd')).to eq 'Destruction Derby'
+      expect(helper.type_desc('figure-of-8')).to eq 'Figure of 8'
+      expect(helper.type_desc('showdown')).to eq 'Showdown'
     end
   end
 end

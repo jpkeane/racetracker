@@ -8,10 +8,15 @@ module FixturesHelper
   end
 
   def type_desc(type)
-    if type == 'normal'
+    case type
+    when 'normal'
       'Race'
-    elsif type == 'dd'
+    when 'dd'
       'Destruction Derby'
+    when 'figure-of-8'
+      'Figure of 8'
+    when 'showdown'
+      'Showdown'
     end
   end
 end
