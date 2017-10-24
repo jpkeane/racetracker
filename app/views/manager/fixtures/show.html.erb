@@ -76,7 +76,7 @@
                 <% @fixture.formula_fixture_heats.each do |h| %>
                   <tr>
                     <td><%= "##{h.race_number}" %></td>
-                    <td><%= "#{h.formula.name}" %></td>
+                    <td><%= link_to "#{h.formula.name}", manager_formula_path(h.formulasca) %></td>
                     <td><%= heat_desc(h.heat_number, h.title) %></td>
                     <td><%= "#{h.laps} laps" %></td>
                     <td><%= type_desc(h.race_type) %></td>
