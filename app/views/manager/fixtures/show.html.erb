@@ -1,22 +1,91 @@
-<h2><%= @fixture.name %></h2>
-<h3>Information</h3>
-<ul>
-  <li>Promotion: <%= link_to @fixture.track.promotion.name, manager_promotion_path(@fixture.track.promotion)%></li>
-  <li>Track: <%= link_to @fixture.track.name, manager_track_path(@fixture.track) %></li>
-</ul>
-<% if @fixture.formula_fixtures.any? %>
-    <h3>Formulas Racing</h3>
-    <ul>
-    <% @fixture.formula_fixtures.each do |ff| %>
-        <li><%= link_to(ff.formula.name, manager_formula_path(ff.formula)) %></li>
-    <% end %>
-    </ul>
-<% end %>
-<% if @fixture.formula_fixture_heats.any? %>
-  <h3>Race Card</h3>
-    <ul>
-      <% @fixture.formula_fixture_heats.each do |h| %>
-        <li><%= "Race #{h.race_number} - #{h.formula.short_name} - Heat #{h.heat_number} #{h.title} #{h.race_type}" %></li>
-      <% end %>
-    </ul>
-<% end %>
+<header class="content__title">
+  <h1><%= @fixture.name %></h1>
+</header>
+<div class="card">
+  <div class="card-header">
+    <h2 class="card-title">Fixture details</h2>
+  </div>
+
+  <div class="card-block">
+    <dl class="row">
+      <dt class="col-sm-3">Name</dt>
+      <dd class="col-sm-9"><%= @fixture.name %></dd>
+    </dl>
+    <dl class="row">
+      <dt class="col-sm-3">Promotion</dt>
+      <dd class="col-sm-9"><%= link_to @fixture.track.promotion.name, manager_promotion_path(@fixture.track.promotion)%></dd>
+    </dl>
+    <dl class="row">
+      <dt class="col-sm-3">Track</dt>
+      <dd class="col-sm-9"><%= link_to @fixture.track.name, manager_track_path(@fixture.track) %></dd>
+    </dl>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-block">
+    <div class="tab-container">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#formulas" role="tab" aria-expanded="false">Formulas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " data-toggle="tab" href="#heats" role="tab" aria-expanded="true">Heats</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane fade active show" id="formulas" role="tabpanel" aria-expanded="false">
+          <div class="table-responsive">
+            <table class="table table-bordered mb-0">
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th>Contact</th>
+                <th>Direction</th>
+                <th>Age</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @fixture.formula_fixtures.each do |f| %>
+                  <tr>
+                    <th scope="row"><%= link_to f.formula.name, manager_formula_path(f.formula) %></th>
+                    <td><%= f.formula.contact %></td>
+                    <td><%= f.formula.direction %></td>
+                    <td> <%= age_range(f.formula.min_age, f.formula.max_age) %></td>
+                  </tr>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <div class="tab-pane fade" id="heats" role="tabpanel" aria-expanded="true">
+          <div class="table-responsive">
+            <table class="table table-bordered mb-0">
+              <thead>
+              <tr>
+                <th>Race</th>
+                <th>Formula</th>
+                <th>Heat</th>
+                <th>Type</th>
+              </tr>
+              </thead>
+              <tbody>
+                <% @fixture.formula_fixture_heats.each do |h| %>
+                  <tr>
+                    <td><%= "##{h.race_number}" %></td>
+                    <td><%= "#{h.formula.name}" %></td>
+                    <td><%= heat_desc(h.heat_number, h.title) %></td>
+                    <td><%= type_desc(h.race_type) %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

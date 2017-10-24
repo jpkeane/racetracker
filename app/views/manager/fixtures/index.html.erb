@@ -1,6 +1,33 @@
-<h2>All Fixtures</h2>
-<ul>
-  <% @fixtures.each do |fixture| %>
-  <li><%= link_to "#{fixture.short_date} - #{fixture.name}", manager_fixture_path(fixture) %></li>
-  <% end %>
-</ul>
+<div class="card">
+  <div class="card-header">
+    <h2 class="card-title">All fixtures</h2>
+  </div>
+  <div class="card-block">
+    <div class="table-responsive">
+      <table class="table table-bordered mb-0">
+        <thead>
+        <tr>
+          <th>Date</th>
+          <th>Title</th>
+          <th>Track</th>
+          <th>Formula</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @fixtures.each do |f| %>
+            <td><%= f.short_date %></td>
+            <td><%= link_to f.name, manager_fixture_path(f) %></td>
+            <td><%= link_to f.track.name, manager_track_path(f.track) %></td>
+            <td>
+              <ul class="list-unstyled">
+              <% f.formula_fixtures.each do |ff| %>
+                  <li><%= link_to ff.formula.name, manager_formula_path(ff.formula)%></li>
+              <% end %>
+              </ul>
+            </td>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
