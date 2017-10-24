@@ -58,10 +58,8 @@ RSpec.describe Promotion, type: :model do
 
     describe 'uniqueness' do
       subject do
-        FactoryGirl.build(:promotion)
+        FactoryGirl.create(:promotion)
       end
-
-      it { is_expected.to validate_uniqueness_of(:slug).case_insensitive }
     end
 
     it 'validates format of postcode' do

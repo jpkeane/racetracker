@@ -22,6 +22,7 @@ RSpec.describe FormulaFixtureHeat, type: :model do
     it { is_expected.to have_attribute :race_number }
     it { is_expected.to have_attribute :title }
     it { is_expected.to have_attribute :race_type }
+    it { is_expected.to have_attribute :laps }
   end
 
   describe 'relationships' do
@@ -45,6 +46,20 @@ RSpec.describe FormulaFixtureHeat, type: :model do
       invalid_t = %w[not-a-type 111111-222222]
       invalid_t.each do |t|
         fixheat = FactoryGirl.build(:formula_fixture_heat, race_type: t)
+        expect(fixheat).not_to be_valid
+      end
+    end
+
+    it 'validates laps' do
+      valid_l = [1, 75, 12]
+      valid_l.each do |l|
+        fixheat = FactoryGirl.build(:formula_fixture_heat, laps: l)
+        expect(fixheat).to be_valid
+      end
+
+      invalid_l = [-2, 'tt']
+      invalid_l.each do |l|
+        fixheat = FactoryGirl.build(:formula_fixture_heat, laps: l)
         expect(fixheat).not_to be_valid
       end
     end

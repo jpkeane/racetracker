@@ -22,6 +22,7 @@ class FormulaFixtureHeat < ApplicationRecord
 
   validates :race_type, presence: true, inclusion: { in: %w[normal showdown dd figure-of-8] }
   validates :heat_number, presence: true
+  validates :laps, numericality: { greater_than_or_equal_to: 0 }
 
   def slug_candidates
     [
